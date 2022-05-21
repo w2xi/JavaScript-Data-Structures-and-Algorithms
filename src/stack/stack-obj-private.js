@@ -49,6 +49,19 @@ function Stack() {
         this.pop()
       }
     },
+
+    toString(){
+      if (this.isEmpty()) {
+        return ''
+      }
+  
+      let str = `${items[0]}`
+      for (let i = 1; i < count; i++) {
+        str = `${str},${items[i]}`
+      }
+  
+      return str
+    }
   }
 }
 
