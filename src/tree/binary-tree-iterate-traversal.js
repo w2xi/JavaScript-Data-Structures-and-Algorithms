@@ -32,18 +32,37 @@ class BinaryTreeIterateTraversal extends BinarySearchTree {
 
   // 先序遍历
   preOrderTraverse(callback) {
+    // const stack = Stack();
+    // const root = this.getRoot();
+    // stack.push(root);
+
+    // while (!stack.isEmpty()) {
+    //   // 出栈
+    //   const node = stack.pop();
+    //   callback(node.key);
+
+    //   // 子节点入栈 先右后左
+    //   node.right && stack.push(node.right);
+    //   node.left && stack.push(node.left);
+    // }
+
     const stack = Stack();
     const root = this.getRoot();
-    stack.push(root);
+    let curr = root;
 
-    while (!stack.isEmpty()) {
+    while (!stack.isEmpty() || curr) {
+      // 左节点先入栈
+      while (curr) {
+        stack.push(curr);
+        callback(curr.key);
+        curr = curr.left;
+      }
       // 出栈
       const node = stack.pop();
-      callback(node.key);
 
-      // 子节点入栈 先右后左
-      node.right && stack.push(node.right);
-      node.left && stack.push(node.left);
+      if (node.right) {
+        curr = node.right;
+      }
     }
   }
 
