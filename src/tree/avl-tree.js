@@ -97,14 +97,12 @@ class AVLTree extends BinarySearchTree {
     return node;
   }
 
-  // remove(key) {
-  //   this.root = this.removeNode(this.root, key);
-  // }
+  remove(key) {
+    this.root = this.removeNode(this.root, key);
+  }
 
   removeNode(node, key) {
     node = super.removeNode(node, key);
-
-    console.log('removeNode', node);
 
     if (!node) {
       return node;
@@ -112,24 +110,24 @@ class AVLTree extends BinarySearchTree {
     // 验证树是否是平衡的
     const balanceFactor = this.getBalanceFactor(node);
 
-    // if (balanceFactor === BalanceFactor.UNBALANCED_LEFT) {
-    //   if (this.compareFn(key, node.left.key) === Compare.LESS_THAN) {
-    //     // 左左
-    //     return this.rotationLL(node);
-    //   } else {
-    //     // 左右
-    //     return this.rotationLR(node);
-    //   }
-    // }
-    // if (balanceFactor === BalanceFactor.UNBALANCED_RIGHT) {
-    //   if (this.compareFn(key, node.right.key) === Compare.BIGGER_THAN) {
-    //     // 右右
-    //     return this.rotationRR(node);
-    //   } else {
-    //     // 右左
-    //     return this.rotationRL(node);
-    //   }
-    // }
+    if (balanceFactor === BalanceFactor.UNBALANCED_LEFT) {
+      if (this.compareFn(key, node.left.key) === Compare.LESS_THAN) {
+        // 左左
+        return this.rotationLL(node);
+      } else {
+        // 左右
+        return this.rotationLR(node);
+      }
+    }
+    if (balanceFactor === BalanceFactor.UNBALANCED_RIGHT) {
+      if (this.compareFn(key, node.right.key) === Compare.BIGGER_THAN) {
+        // 右右
+        return this.rotationRR(node);
+      } else {
+        // 右左
+        return this.rotationRL(node);
+      }
+    }
 
     return node;
   }
@@ -203,7 +201,7 @@ class AVLTree extends BinarySearchTree {
   }
 }
 
-const avlTree = new AVLTree();
+const tree = new AVLTree();
 //         3 (h=3)
 //        / \
 // (h=0) 2   6 (h=2)
@@ -211,14 +209,14 @@ const avlTree = new AVLTree();
 //   (h=1) 5   7 (h=0)
 //        /
 //       4 (h=0)
-avlTree.insert(3);
-avlTree.insert(2);
-avlTree.insert(6);
-avlTree.insert(5);
-avlTree.insert(7);
+tree.insert(3);
+tree.insert(2);
+tree.insert(6);
+tree.insert(5);
+tree.insert(7);
 
 // 4是破坏者，插入后，做RL变换
-avlTree.insert(4);
+tree.insert(4);
 //      LL变换 ->
 //        3
 //       / \
@@ -235,13 +233,25 @@ avlTree.insert(4);
 //    / \   \ 
 //   2   4   7
 
-// avlTree.remove(7);
+tree.remove(7);
+tree.remove(6);
+//     4
+//    / \
+//   3   5
+//  / 
+// 2
+tree.remove(5);
+//     4
+//    /
+//   3   
+//  / 
+// 2
+// 应该是LL变换，但是这里是竟然走了 LR 变换，导致报错
 
-console.log(avlTree)
 
-// console.log(avlTree.getRoot());
+console.log(tree.getRoot());
 
 // 先序遍历打印每个节点的高度
-// avlTree.preOrderTraverse((node) => {
-//   console.log(`key=${node.key}; height=${avlTree.getNodeHeight(node)}`);
+// tree.preOrderTraverse((node) => {
+//   console.log(`key=${node.key}; height=${tree.getNodeHeight(node)}`);
 // });

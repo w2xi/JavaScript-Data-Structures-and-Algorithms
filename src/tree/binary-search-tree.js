@@ -41,7 +41,7 @@ class BinarySearchTree {
     }
     if (Compare.LESS_THAN === this.compareFn(key, node.key)) {
       return this.searchNode(node.left, key);
-    } else if (Compare.GREATER_THAN === this.compareFn(key, node.key)) {
+    } else if (Compare.BIGGER_THAN === this.compareFn(key, node.key)) {
       return this.searchNode(node.right, key);
     } else {
       return true;
@@ -59,7 +59,7 @@ class BinarySearchTree {
     if (Compare.LESS_THAN === this.compareFn(key, node.key)) {
       node.left = this.removeNode(node.left, key);
       return node;
-    } else if (Compare.GREATER_THAN === this.compareFn(key, node.key)) {
+    } else if (Compare.BIGGER_THAN === this.compareFn(key, node.key)) {
       node.right = this.removeNode(node.right, key);
       return node;
     } else {
