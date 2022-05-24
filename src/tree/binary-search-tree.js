@@ -2,18 +2,16 @@ const Node = require('./node');
 const { Compare, defaultCompare } = require('../utils');
 
 class BinarySearchTree {
-  // private prop
-  #root;
   constructor(compareFn = defaultCompare) {
     this.compareFn = compareFn;
-    this.#root = null;
+    this.root = null;
   }
 
   insert(key) {
-    if (this.#root == null) {
-      this.#root = new Node(key);
+    if (this.root == null) {
+      this.root = new Node(key);
     } else {
-      this.insertNode(this.#root, key);
+      this.insertNode(this.root, key);
     }
   }
 
@@ -34,7 +32,7 @@ class BinarySearchTree {
   }
 
   search(key) {
-    return this.searchNode(this.#root, key);
+    return this.searchNode(this.root, key);
   }
 
   searchNode(node, key) {
@@ -51,7 +49,7 @@ class BinarySearchTree {
   }
 
   remove(key) {
-    this.#root = this.removeNode(this.#root, key);
+    this.root = this.removeNode(this.root, key);
   }
 
   removeNode(node, key) {
@@ -70,6 +68,7 @@ class BinarySearchTree {
       /** 场景一：移除一个叶节点 */
       if (!node.left && !node.right) {
         node = null;
+        // console.log('remove', node);
         return node;
       }
       
@@ -99,7 +98,7 @@ class BinarySearchTree {
   }
 
   min() {
-    return this.minNode(this.#root);
+    return this.minNode(this.root);
   }
 
   minNode(node) {
@@ -111,7 +110,7 @@ class BinarySearchTree {
   }
 
   max() {
-    return this.maxNode(this.#root);
+    return this.maxNode(this.root);
   }
 
   maxNode(node) {
@@ -123,7 +122,7 @@ class BinarySearchTree {
   }
 
   getRoot() {
-    return this.#root;
+    return this.root;
   }
 }
 
@@ -152,3 +151,7 @@ module.exports = BinarySearchTree;
 
 // console.log(tree.search(7)); // true
 // console.log(tree.search(1)); // false
+
+// tree.remove(10);
+
+// console.log(tree.getRoot());
