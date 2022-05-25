@@ -28,9 +28,14 @@ const swap = (arr, i, j) => {
   arr[j] = temp;
 }
 
+const reverseCompare = (compareFn) => {
+  return (a, b) => compareFn(b, a);
+}
+
 module.exports = {
   Compare,
   swap,
   defaultCompare,
   defaultToString,
+  reverseCompare
 };
