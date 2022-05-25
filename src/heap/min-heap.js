@@ -126,9 +126,16 @@ class MinHeap {
   size() {
     return this.heap.length;
   }
+
+  clear() {
+    this.heap.length = 0;
+  }
 }
 
 module.exports = MinHeap;
+
+// 最小堆可视化 demo
+// ref: https://www.cs.usfca.edu/~galles/visualization/Heap.html
 
 // const heap = new MinHeap();
 
