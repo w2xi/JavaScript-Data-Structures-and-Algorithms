@@ -76,11 +76,13 @@ class MinHeap {
     const right = this.getRightChildIndex(index);
     const size = this.size();
 
-    // 如果当前节点值大于左子节点值，说明需要往左下移
+    // 如果当前节点值大于左子节点值
     if (left < size && this.compareFn(this.heap[element], this.heap[left]) === Compare.BIGGER_THAN) {
       element = left;
     }
-    // 如果当前节点值大于右子节点值，说明需要往右下移
+    // 两种情况：
+    // 1. element = index，比较的是当前节点和右子节点
+    // 2. element = left, 此时比较的是左子节点和右子节点的大小
     if (right < size && this.compareFn(this.heap[element], this.heap[right]) === Compare.BIGGER_THAN) {
       element = right;
     }
@@ -125,6 +127,8 @@ class MinHeap {
     return this.heap.length;
   }
 }
+
+module.exports = MinHeap;
 
 // const heap = new MinHeap();
 
