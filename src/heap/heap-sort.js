@@ -18,7 +18,9 @@ function heapify(array, index, heapSize, compareFn) {
   }
 }
 
-// 执行该函数后，堆中的第一个元素是最大元素
+// 构建大根堆，使得每个父节点的元素大于等于它的子节点
+// 此时整个序列最大值即为堆顶元素
+// Reference: https://leetcode.cn/problems/sort-an-array/solution/pai-xu-shu-zu-by-leetcode-solution/
 function buildMaxHeap(array, compareFn) {
   const size = array.length;
   // 只对堆中前半部分元素堆化(因为后半部分都是叶子节点, 没有子节点, 做下移操作没有意义)
@@ -27,10 +29,13 @@ function buildMaxHeap(array, compareFn) {
   }
 }
 
+// 堆排序
+// 时间复杂度: O(nlog(n))
+// 空间复杂度: O(1)
 function heapSort(array, compareFn = defaultCompare) {
   let heapSize = array.length;
   buildMaxHeap(array, compareFn);
-  console.log(array);
+  
   while (heapSize > 1) {
     // 交换堆第一个元素和最后一个元素
     swap(array, 0, --heapSize);
