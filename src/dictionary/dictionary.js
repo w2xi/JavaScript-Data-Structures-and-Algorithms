@@ -80,27 +80,29 @@ class Dictionary {
   }
 }
 
-const dictionary = new Dictionary();
+module.exports = Dictionary;
 
-dictionary.set('Gandalf', 'gandalf@email.com')
-dictionary.set('John', 'johnsnow@email.com')
-dictionary.set('Tyrion', 'tyrion@email.com')
+// const dictionary = new Dictionary();
 
-console.log(dictionary.hasKey('Gandalf')); // true
-console.log(dictionary.size()); // 3
+// dictionary.set('Gandalf', 'gandalf@email.com')
+// dictionary.set('John', 'johnsnow@email.com')
+// dictionary.set('Tyrion', 'tyrion@email.com')
 
-console.log(dictionary.keys());
-console.log(dictionary.values());
-console.log(dictionary.get('Tyrion'));
+// console.log(dictionary.hasKey('Gandalf')); // true
+// console.log(dictionary.size()); // 3
 
-console.log('------------------');
+// console.log(dictionary.keys());
+// console.log(dictionary.values());
+// console.log(dictionary.get('Tyrion'));
 
-dictionary.remove('John');
+// console.log('------------------');
 
-console.log(dictionary.keys());
-console.log(dictionary.values());
-console.log(dictionary.keyValues());
+// dictionary.remove('John');
 
-dictionary.forEach((k, v) => {
-  console.log('forEach: ', `key: ${k}, value: ${v}`);
-});
+// console.log(dictionary.keys());
+// console.log(dictionary.values());
+// console.log(dictionary.keyValues());
+
+// dictionary.forEach((k, v) => {
+//   console.log('forEach: ', `key: ${k}, value: ${v}`);
+// });
