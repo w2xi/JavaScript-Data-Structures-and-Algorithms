@@ -59,11 +59,11 @@ module.exports = Graph;
 
 // const graph = new Graph();
 
-// const myVertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']; // {12}
-// for (let i = 0; i < myVertices.length; i++) { // {13}
+// const myVertices = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+// for (let i = 0; i < myVertices.length; i++) {
 //  graph.addVertex(myVertices[i]);
 // }
-// graph.addEdge('A', 'B'); // {14} 
+// graph.addEdge('A', 'B');
 
 // graph.addEdge('A', 'C');
 // graph.addEdge('A', 'D');
