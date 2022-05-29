@@ -69,18 +69,4 @@ class Stack {
   }
 }
 
-const s = new Stack()
-
-console.log(s.isEmpty()) // true
-s.push(1, 2, 3, 4)
-console.log(s.size()) // 4
-console.log(s.peek()) // 4
-console.log(s.pop()) // 4
-console.log(s.toString()) // 1,2,3
-s.clear()
-console.log(s.isEmpty()) // true
-
-// 无法保护内部私有属性
-console.log(Object.getOwnPropertyNames(s)); // [ 'count', 'items' ]
-console.log(Object.keys(s)); // [ 'count', 'items' ]
-console.log(s.items); // []
+module.exports = Stack;
