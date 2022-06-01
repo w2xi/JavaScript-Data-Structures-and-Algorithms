@@ -26,6 +26,6 @@ function binarySearch(array, target) {
 
 module.exports = binarySearch;
 
-// const sortedArray = [-1,0,1,2,3,4,5,10,100];
-// console.log(binarySearch(sortedArray, -1)); // 0
-// console.log(binarySearch(sortedArray, 100)); // 8
+// const array = [-1,0,1,2,3,4,5,10,100];
+// console.log(binarySearch(array, -1)); // 0
+// console.log(binarySearch(array, 100)); // 8
