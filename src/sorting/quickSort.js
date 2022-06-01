@@ -44,17 +44,19 @@ function partition(array, left, right, compareFn) {
   return i;
 }
 
-function createNonSortedArray(size) {
-  const array = [];
-  for (let i = size; i > 0; i--) {
-    array.push(i);
-  }
-  return array;
-}
-let array = createNonSortedArray(5);
-console.log(array.join());
-array = quickSort(array);
-console.log(array.join());
+module.exports = quickSort;
+
+// function createNonSortedArray(size) {
+//   const array = [];
+//   for (let i = size; i > 0; i--) {
+//     array.push(i);
+//   }
+//   return array;
+// }
+// let array = createNonSortedArray(5);
+// console.log(array.join());
+// array = quickSort(array);
+// console.log(array.join());
 
 // output:
 
