@@ -1,4 +1,4 @@
-const insertionSort = require('../sorting/insertionSort');
+const insertionSort = require('./insertion-sort');
 
 // 桶排序 (分布式排序算法)
 

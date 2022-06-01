@@ -1,4 +1,4 @@
-const quickSort = require('../sorting/quicksort');
+const quickSort = require('../sorting/quick-sort');
 
 // 二分查找
 // 在一个已经排好序的数组中查找一个值，如果数组中存在这个值，则返回它的索引，否则返回-1
