@@ -1,4 +1,4 @@
-const DoublyLinkedList = require('./doubly-linked-list')
+const DoublyLinkedList = require('../linked-list/doubly-linked-list')
 
 function StackLinkedList() {
   let items = DoublyLinkedList()
