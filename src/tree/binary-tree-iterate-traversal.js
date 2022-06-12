@@ -93,16 +93,27 @@ class BinaryTreeIterateTraversal extends BinarySearchTree {
 
   // 层序遍历
   levelOrderTraverse(callback) {
+    const result = [];
     const queue = [];
     const root = this.getRoot();
     queue.push(root);
 
     while (queue.length > 0) {
-      const node = queue.shift();
-      callback(node.key);
-      node.left && queue.push(node.left);
-      node.right && queue.push(node.right);
+      const temp = [];
+      let size = queue.length;
+
+      while (size--) {
+        const node = queue.shift();
+        temp.push(node.key);
+        node.left && queue.push(node.left);
+        node.right && queue.push(node.right);
+      }
+      result.push(temp);
     }
+    
+    callback(result);
+
+    return result;
   }
 }
 
@@ -132,4 +143,4 @@ tree.preOrderTraverse(console.log);   // 7 5 4 6 9 8 10
 console.log('--------------');
 tree.postOrderTraverse(console.log);  // 4 6 5 8 10 9 7
 console.log('--------------');
-tree.levelOrderTraverse(console.log); // 7 5 9 4 6 8 10
+tree.levelOrderTraverse(console.log); // [ [ 7 ], [ 5, 9 ], [ 4, 6, 8, 10 ] ]
