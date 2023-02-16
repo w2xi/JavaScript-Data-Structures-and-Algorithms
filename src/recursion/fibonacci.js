@@ -21,6 +21,7 @@ function fibonacciIterative(n) {
 }
 
 // 记忆化（保存前一个结果的值的优化技术，类似于缓存），解决重复调用计算问题，明显降低递归次数
+// 动态规划 DP
 function fibonacciMemoization(n) {
   if (n < 1) return 0;
   const memo = [0, 1];
